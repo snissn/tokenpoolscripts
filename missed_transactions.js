@@ -16,6 +16,9 @@ redisClient.keys('*',function(err, keys){
               var transaction = web3.eth.getTransaction(transfer['txHash']); // check if the transaction is actually on the blockchain
               if(!transaction){ // transaction is not on the blockchain
                 console.log(JSON.stringify(transfer));
+                if(i == keys.lenght){
+                  process.exit(0);
+                }
               }
             });
           });
