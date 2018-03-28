@@ -8,6 +8,10 @@ writer.writeheader()
 
 
 for line in sys.stdin:
-  line = json.loads(line)
-  print(line)
-  writer.writerow(line)
+  try:
+    line = json.loads(line)
+    print(line)
+    writer.writerow(line)
+  except Exception as e:
+    print(e)
+    print(line)
